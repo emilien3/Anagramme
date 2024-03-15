@@ -6,16 +6,17 @@ import java.io.InputStreamReader;
 
 public class TriInsertion {
 
-	public void traitement(char[] anagramme, int taille_anagramme) {
-		for (int i = 0; i < taille_anagramme - 1; i++) {
+	public char[] triInsertion(char[] anagramme) {
+		for (int i = 1; i < anagramme.length; i++) {
 			char car = anagramme[i];
-			int j = i;
-			while ((j > 0) && (car < anagramme[j - 1])) {
-				anagramme[j] = anagramme[j - 1];
+			int j = i-1;
+			while ((j >= 0) && (car < anagramme[j])) {
+				anagramme[j+1] = anagramme[j];
 				j--;
 			}
-			anagramme[j] = car;
+			anagramme[j+1] = car;
 		}
+		return anagramme;
 	}
 
 	public String lecture() throws IOException {
@@ -37,9 +38,8 @@ public class TriInsertion {
 
 	public void anagramme(String text) {
 		System.out.println(text);
-		int taille_anagramme = text.length();
 		char[] anagramme = text.toCharArray();
-		traitement(anagramme, taille_anagramme);
+		triInsertion(anagramme);
 		System.out.println(anagramme);
 
 	}
@@ -47,6 +47,11 @@ public class TriInsertion {
 	public static void main(String[] args) {
 		TriInsertion t = new TriInsertion();
 		t.anagrammeLu();
+		
+		boolean test ='a' > 'A';
+		
+		System.out.println(test);
+	
 	}
 
 }
