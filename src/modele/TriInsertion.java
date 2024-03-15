@@ -3,6 +3,7 @@ package modele;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.Normalizer;
 
 public class TriInsertion {
 
@@ -24,6 +25,11 @@ public class TriInsertion {
 		BufferedReader br = new BufferedReader(isr);
 		String text = br.readLine();
 		return text;
+	}
+	
+	public String retireAccent(String text) {
+		String res = Normalizer.normalize(text, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+		return res;
 	}
 
 	public void anagrammeLu() {
