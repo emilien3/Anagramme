@@ -27,11 +27,8 @@ public class TriInsertion {
 	}
 
 	public void anagrammeLu() {
-		String text;
 		try {
-			text = lecture();
-			String res = anagramme(text);
-			//System.out.println(res);
+			lecture();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -56,7 +53,7 @@ public class TriInsertion {
 	public static void main(String[] args) {
 		TriInsertion t = new TriInsertion();
 		t.anagrammeLu();
-		System.out.println(Integer.MAX_VALUE);
+		//System.out.println(Integer.MAX_VALUE);
 	}
 
 }
